@@ -1,0 +1,689 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Volkhob:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(180deg, #DCE7FC 0%, #FFFFFF 19.33%);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #DCE7FC 0%,;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #ccc;
+  border: none;
+}
+
+header .logo img {
+  width: 150px;
+}
+
+logo.h1{
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(180deg, #DCE7FC 0%, #FFFFFF 19.33%);
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+}
+
+header nav ul li {
+  margin-right: 2rem;
+}
+
+header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+header .register-btn {
+  background: #fff; 
+  color: #333; 
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border: 2px solid #333; 
+  border-radius: 5px;
+  font-weight: bold; 
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero .cta-btn {
+  background: #fff; 
+  color: #333; 
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border: 2px solid #333; 
+  border-radius: 5px;
+  font-weight: bold; 
+}
+
+.services {
+  padding: 2rem;
+  background: #fff;
+  text-align: center;
+  display: flex;
+}
+
+.services h2 {
+  margin-bottom: 2rem;
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+  text-align: center;
+}
+
+.services .services-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.services .service {
+  background: #f4f4f4;
+  margin: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: calc(25% - 2rem);
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+
+.services .service img {
+  width: 100%;
+  border-radius: 5px 5px 0 0; 
+  margin-bottom: 1rem;
+}
+
+.services .service h3 {
+  margin-bottom: 1rem;
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.services .service p {
+  font-family: 'Inter', sans-serif;
+}
+
+.services .service a {
+  display: block;
+  margin-top: 1rem;
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+.testimonials {
+  padding: 2rem;
+  background: white;
+  text-align: center;
+}
+
+.testimonials h2 {
+  margin-bottom: 2rem;
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.testimonials .testimonial {
+  background: #D9D9D9;
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 0px 50px;
+  width: 346px;
+  height: 340px;
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.testimonials .testimonial-photo {
+  position: absolute;
+  width: 101px;
+  height: 100px;
+  left: 122px; /* Center the photo */
+  top: 20px;
+  background: url('image') no-repeat center center;
+  background-size: cover;
+  border-radius: 50%;
+}
+
+.testimonials .testimonial-text {
+  margin-top: 140px; 
+}
+
+.testimonials .testimonial p {
+  font-family: 'Inter', sans-serif;
+}
+
+.testimonials .testimonial .author {
+  margin-top: 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 124.5%;
+  text-align: center;
+  color: #000000;
+  position: absolute;
+  width: 100%;
+  bottom: 20px;
+}
+
+.lineafinal{
+  width: 80%;
+  margin: 0 auto;
+}
+
+footer {
+  background: #fff;
+  color: #333;
+  padding: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-left {
+  flex: 1;
+  min-width: 300px;
+  text-align: left;
+}
+
+.footer-logo img {
+  width: 150px;
+}
+
+.footer-services {
+  flex: 1;
+  min-width: 300px;
+  text-align: center;
+}
+
+.footer-contact {
+  flex: 1;
+  min-width: 300px;
+  text-align: right;
+}
+
+.social-media {
+  margin-top: 1rem;
+}
+
+.social-media a {
+  margin: 0 1rem;
+}
+
+.footer-services ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-services ul li {
+  margin-bottom: 0.5rem;
+}
+
+
+/* Pagina Registrate                 */
+
+.tituloregistro {
+    font-family: 'Volkhov';
+    font-style: italic;
+    font-weight: 700;
+    font-size: 84px;
+    line-height: 89px;
+    color: #181E4B;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.contenedorRegistro {
+    width: 32.5%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-control {
+    width: 600px;
+    height: 77px;
+    background: #F6F6F6;
+    border: 1px solid #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-top: 30px;
+    padding: 0em 1em;
+    margin-bottom: 20px;
+}
+
+.bregistarUsuario {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 11px 130px;
+    gap: 10px;
+    width: 527px;
+    height: 80px;
+    background: rgba(48, 87, 163, 0.13);
+    opacity: 0.5;
+    box-shadow: 0px 4px 0px #B7CAFF;
+    border-radius: 40px;
+}
+
+
+/* Pagina Pago                 */
+.tituloPago{
+  font-family: 'Volkhov';
+  font-style: italic;
+  font-weight: 700;
+  font-size: 84px;
+  line-height: 89px;
+  color: #181E4B;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contenedorPago{
+  width: 32.5%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.bpagoUsuario{
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 11px 130px;
+  gap: 10px;
+  width: 527px;
+  height: 80px;
+  background: rgba(48, 87, 163, 0.13);
+  opacity: 0.5;
+  box-shadow: 0px 4px 0px #B7CAFF;
+  border-radius: 40px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: rgba(10, 85, 223, 0.658);
+}
+
+/*    Supscricpion   */
+
+.contendorTransaccion{
+  width: 32.5%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.contenedorTexto{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0em 4em;
+}
+
+.textoCo1{
+  flex: 1 1 50%; /* Cada elemento ocupará el 50% del ancho del contenedor */
+  text-align: left;
+}
+
+.textoCo2{
+  flex: 1 1 50%; /* Cada elemento ocupará el 50% del ancho del contenedor */
+  text-align: right;
+}
+
+/* Mentor Section */
+
+.mentors-section {
+  display: grid;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mentors-header {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Columna de texto flexible, imagen autoajustable */
+  align-items: center; /* Alinea verticalmente */
+}
+
+
+.mentors-section h1 {
+  font-size: 2.5rem;
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: left;
+  margin: auto;
+  width: 100%;
+}
+
+.mentors-header p {
+  margin: 5px 0 0; /* Espacio arriba del párrafo */
+}
+
+.mentors-description {
+  width: 40%;
+  padding-right: 2rem;
+  margin-bottom: 20px;
+}
+
+.mentors-description p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.mentors-description img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.mentors-grid {
+border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  gap: 2rem;
+  justify-content: center; 
+  margin-top: 20px;
+  max-width: 50%;
+  margin: 0 auto;
+
+}
+
+.mentor {
+flex: 1 1 calc(25% - 40px);
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 250px; /* Ajusta el ancho de los cuadros según sea necesario */
+  margin: 5rem; 
+}
+
+.mentor h2 {
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.mentor p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.mentor-photo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.mentor-photo img {
+  width: 100%;
+  height: auto;
+  
+}
+
+.mentor-pensante {
+  grid-column: 2; /* Coloca la imagen en la segunda columna */
+  margin-left: 20px; /* Espacio entre el texto y la imagen */
+  margin: 40px;
+}
+
+.mentor-pensante img {
+  max-width: 200px; /* Ajusta el tamaño según sea necesario */
+}
+
+.mentor-description {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Contact Section */
+.contact-section {
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.contact-section h1 {
+  font-size: 2.5rem;
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-details {
+  flex: 1;
+  text-align: left;
+  margin-right: 2rem;
+}
+
+.contact-details p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.contact-details i {
+  margin-right: 0.5rem;
+}
+
+.map {
+  flex: 1;
+}
+
+.map img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+/* Planes */
+
+.plan-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.plan-text {
+  
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+  margin: 50px;
+}
+
+.plan h1 {
+  font-family: 'Volkhob', serif;
+  font-size: 36px;
+  font-style: italic;
+
+}
+
+.plan p {
+  font-size: 18px;
+  color: #333;
+}
+
+.plan-image img {
+  max-width: 500px;
+  height: auto;
+}
+/* Membresias */
+.membresia-plans {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  text-align: center;
+  border-radius: 50px 30px 50px 30px;
+
+}
+
+.plan {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.plan h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'Volkhob', serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.plan p {
+  text-align: left;
+  color: blue;
+  font-family: 'initial;', serif;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.plan ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.plan ul li {
+  margin: 10px 0;
+}
+
+.plan button {
+  width: 240px;
+  height: 73px;
+  left: 928px; /* Ajusta esta posición según sea necesario */
+  top: 1478px; /* Ajusta esta posición según sea necesario */
+  
+  background-color: #5EA2E1; /* Color de fondo */
+  border-radius: 25px 0px; /* Bordes redondeados */
+  color: #181E4B; /* Color del texto */
+  font-family: 'Poppins', sans-serif; /* Fuente del texto */
+  font-style: normal; /* Estilo de fuente */
+  font-weight: 500; /* Peso de fuente */
+  font-size: 18px; /* Tamaño de fuente */
+  line-height: 124.5%; /* Altura de línea */
+  text-align: center; /* Alineación del texto */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cursor de puntero */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: center; /* Centrar horizontalmente */
+}
+
+
+.plan button:hover {
+  background-color: #0056b3;
+}
+
+.paypal-button-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0; /* Ajusta los márgenes según sea necesario */
+}
+
+/* Admin*/
+.seccionArriba{
+  display: flex;
+  justify-content: space-between;
+}
+
+.SeccionAdmin{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.SeccionAdmin h2{
+  text-align: center;
+}
+
+
+/*Estilos Perfil*/
+
+.contenidoPerfil{
+  width: 80%;
+  margin: 0 auto;
+}
+
+.nombre_usuario {
+  float: left;
+  margin-right: 20px; /* Ajusta el valor según sea necesario */
+}
+
+
+.membresia-plans .plan .precio{
+  margin-left: 230px;
+}

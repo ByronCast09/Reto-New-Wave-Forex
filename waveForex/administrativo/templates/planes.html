@@ -1,0 +1,75 @@
+{% extends "master.html" %}
+
+{% block title %}
+{% load static %}
+  New Wave Forex
+{% endblock %}
+
+{% block content %}
+    
+    <div class="plan-content">
+        <div class="plan-text">
+            <h1>Nos especializamos <br> en la formación en<br> Swing Trading</h1>
+            <p>¿Estás listo para aprender a predecir y controlar <br>el mercado de divisas? Desarrolla habilidades y estrategias<br> avanzadas para que puedas ser parte de nuestra comunidad.</p>
+        </div>
+        <div class="plan-image">
+            <img src="{% static 'images/planes.png' %}" alt="Swing Trading">
+        </div>
+    </div>
+
+    <section class="membresia-plans">
+        <div class="plan">
+            <h2>Membresía Mensual</h2>
+            <p class="precio">$100</p>
+            <ul>
+                <li>Acceso a plataformas educativas</li>
+                <li>Asesorías con mentores</li>
+                <li>1 hora de sesión 1:1 semanal</li>
+                <li>Clases en video</li>
+                <li>Acceso a la comunidad NWFX</li>
+                <li>Soporte personalizado</li>
+            </ul>
+            {% if user.is_authenticated %}
+            <button onclick="window.location.href='{% url 'pago' user.id|add:2 %}'">CONTRATAR</button>
+            {% else %}
+            <button onclick="window.location.href='{% url 'registrar_usuario' %}'">REGÍSTRATE</button>
+            {% endif %}
+            
+        </div>
+        <div class="plan">
+            <h2>Membresía Mensual</h2>
+            <p class="precio">$600</p>
+            <ul>
+                <li>Acceso a plataformas educativas</li>
+                <li>Asesorías con mentores</li>
+                <li>5 horas de sesión 1:1 semanal</li>
+                <li>Clases en video</li>
+                <li>Acceso a la comunidad NWFX</li>
+                <li>Soporte personalizado</li>
+            </ul>
+            {% if user.is_authenticated %}
+            <button onclick="window.location.href='{% url 'pago' user.id|add:2 %}'">CONTRATAR</button>
+            {% else %}
+            <button onclick="window.location.href='{% url 'registrar_usuario' %}'">REGÍSTRATE</button>
+            {% endif %}
+            
+        </div>
+        <div class="plan">
+            <h2>Membresía Mensual</h2>
+            <p class="precio">$1000</p>
+            <ul>
+                <li>Acceso a plataformas educativas</li>
+                <li>Asesorías con mentores</li>
+                <li>10 horas de sesión 1:1 semanal</li>
+                <li>Clases en video</li>
+                <li>Acceso a la comunidad NWFX</li>
+                <li>Soporte personalizado</li>
+            </ul>
+            {% if user.is_authenticated %}
+            <button onclick="window.location.href='{% url 'pago' user.id|add:2 %}'">CONTRATAR</button>
+            {% else %}
+            <button onclick="window.location.href='{% url 'registrar_usuario' %}'">REGÍSTRATE</button>
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

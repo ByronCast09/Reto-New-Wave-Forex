@@ -1,0 +1,33 @@
+
+{% extends "masterusuarios.html" %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/videos.css' %}">
+{% endblock %}
+
+{% block title %}
+Videos - New Wave Forex
+{% endblock %}
+
+{% block content %}    
+
+        <section class="intro">
+            <h2>Nuestros Videos</h2>
+            <p>Para complementar tu aprendizaje, hemos creado una serie de videos en YouTube que te ayudarán a profundizar tus conocimientos en forex.</p>
+        </section>
+        <section class="videos">
+            {% for video in videos %}
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/{{ video.videoId }}" allowfullscreen></iframe>
+                <h3>{{ video.title }}</h3>
+                <p>{{ video.publishedAt|date:"Y-m-d" }}</p>
+                <p>{{ video.author }}</p>
+            </div>
+        {% empty %}
+            <p>No hay videos disponibles.</p>
+        {% endfor %}
+            
+        </section>
+
+{% endblock %}

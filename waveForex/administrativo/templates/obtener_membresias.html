@@ -1,0 +1,56 @@
+{% extends "masterAdmin.html" %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/videos.css' %}">
+{% endblock %}
+
+{% block title %}
+Videos - New Wave Forex
+{% endblock %}
+
+{% block content %}    
+<section class="contenidoPerfil">
+    <h1> Perfil</h1>
+
+    <section></section>
+        <p><strong>Nombre:</strong> {{ producto.nombre }}</p>
+        <p><strong>Precio:</strong> {{ producto.precio }}</p>
+        <p><strong>Descripción:</strong> {{ producto.descripcion }}</p>
+
+        <br>
+        <h2>Historial de Pagos</h2>
+        <br>
+        {% if pagos %}
+            <table id="tabla_datos">
+                <thead>
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Fecha de Pago</th>
+                        <th>Total Pagado</th>
+                        <th>Método de Pago</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for pago in pagos %}
+                        <tr>
+                            <td>{{ pago.usuario.nombre }} {{ pago.usuario.apellido }}</td>
+                            <td>{{ pago.fecha_pago }}</td>
+                            <td>{{ pago.total_pagar }}</td>
+                            <td>{{ pago.metodo_pago }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#tabla_datos').DataTable();
+                });
+            </script>
+        {% else %}  
+            <p>No tienes pagos registrados.</p>
+        {% endif %}
+
+</section> 
+<br><br>
+{% endblock %}

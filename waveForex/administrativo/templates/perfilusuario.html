@@ -1,0 +1,89 @@
+{% extends "masterusuarios.html" %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/videos.css' %}">
+{% endblock %}
+
+{% block title %}
+Videos - New Wave Forex
+{% endblock %}
+
+{% block content %}    
+<section class="contenidoPerfil">
+    <h1> Tu Perfil</h1>
+    {% if usuario %}
+    <section class="perfilUsuario">
+        <div class="secion_imagen">
+            <img src="{% static 'images/imagenPerfil.jpeg' %}" alt="Imagen de perfil">
+        </div>
+        <div class="seccion_informacion_perfil">
+            <p><strong>Nombre:</strong> {{ usuario.nombre }}</p><br>
+            <p><strong>Apellido:</strong> {{ usuario.apellido }}</p><br>
+            <p><strong>Correo:</strong> {{ usuario.correo }}</p><br>
+            <p><strong>Teléfono:</strong> {{ usuario.telefono }}</p><br>
+            <p><strong>Fecha de Registro:</strong> {{ usuario.fecha_registro }}</p><br>
+            {% if ultimo_pago %}
+            <p><strong>Última Fecha de Pago:</strong> {{ ultimo_pago }}</p><br>
+            <p><strong>Días Restantes de Suscripción:</strong> 
+                {% if dias_restantes > 0 %}
+                    {{ dias_restantes }}
+                {% else %}
+                    La suscripción ha expirado
+                {% endif %}
+            </p><br>
+            {% endif %}
+        </div>
+    </section>
+        
+    <br>
+    <h2>Historial de Pagos</h2>
+    <br> 
+    {% if pagos %}
+        <table id="tabla_datos">
+            <thead>
+                <tr>
+                    <th>Fecha de Pago</th>
+                    <th>Total Pagado</th>
+                    <th>Método de Pago</th>
+                    <th>Producto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pago in pagos %}
+                    <tr>
+                        <td>{{ pago.fecha_pago }}</td>
+                        <td>{{ pago.total_pagar }}</td>
+                        <td>{{ pago.metodo_pago }}</td>
+                        <td>{{ pago.producto.nombre }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#tabla_datos').DataTable();
+            });
+        </script>
+    {% else %}  
+        <p>No tienes pagos registrados.</p>
+    {% endif %}
+
+    {% else %}
+        <p>No se encontró la información del usuario.</p>
+    {% endif %}
+    <br><br>
+
+</section> 
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        var tienePagos = "{{ tiene_pagos|yesno:'true,false' }}";
+        if (tienePagos === 'false') {
+            alert("Debe de tener una membresía activa para acceder a esta página.");
+            window.location.href = "{% url 'planes' %}";
+        }
+    });
+</script>
+
+{% endblock %}

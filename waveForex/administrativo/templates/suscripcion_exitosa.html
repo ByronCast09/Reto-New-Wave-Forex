@@ -1,0 +1,24 @@
+{% extends "master.html" %}
+
+{% block title %}
+{% load static %}
+Suscripción Exitosa
+{% endblock %}
+
+{% block content %}
+    <h1 class="tituloregistro">Suscripción Exitosa</h1>
+    <div class="contendorTransaccion">
+        <img src="{% static 'images/verificado.png' %}">
+        <!-- <div class="contenedorTexto">
+            <p class="textoCo1">Usuario:</p> <p class="textoCo2">{{ usuario.nombre }}</p>
+            <p class="textoCo1">Producto:</p> <p class="textoCo2">{{ producto.nombre }}</p>
+            <p class="textoCo1">Estado de Suscripción:</p> <p class="textoCo2">{{suscripcion.estado}}</p>
+            <p class="textoCo1">Fecha de pago:</p> <p class="textoCo2">{{ pago.fecha_pago|date:"d M Y" }}</p>
+            <p class="textoCo1">Hora de pago:</p> <p class="textoCo2">{{ pago.fecha_pago|time:"H:i" }}</p>
+            <p class="textoCo1">Fecha de Inicio de Suscripción:</p> <p class="textoCo2">{{ suscripcion.fecha_inicio|date:"d M Y"}}</p>
+            <p class="textoCo1">Fecha de Fin de Suscripción:</p> <p class="textoCo2">{{ suscripcion.fecha_fin|date:"d M Y"}}</p>
+            <p class="textoCo1">Metodo de Pago:</p> <p class="textoCo2">{{ pago.get_metodo_pago_display }}</p>
+            <p class="textoCo1">Total a pagar:</p> <p class="textoCo2">${{ pago.total_pagar}}</p>
+        </div> -->
+    </div>
+{% endblock %}

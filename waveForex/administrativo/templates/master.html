@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/estilos.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css">
+    <script type="text/javascript" src="{% static 'js/enlaces.js' %}">
+    </script>
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+  </head>
+  <body>
+    <header>
+        <div class="logo">
+          <a href="/">
+            <img src="{% static 'images/Logo.png' %}" alt="New Wave Forex Logo">
+          </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'index' %}">Inicio</a></li>
+                <li><a href="#">Acerca de Nosotros</a></li>
+                <li><a href="{% url 'mentores' %}">Mentores</a></li>
+                <li><a href="{% url 'planes' %}">Planes</a></li>
+            </ul>
+        </nav>
+        <div class="ingresar">
+          {% if user.is_authenticated %}
+          <span class="nombre_usuario"> Bienvenido: {{user.first_name}} {{user.last_name}} </span>
+          {% endif %} 
+          
+          {% if user.is_authenticated %}
+            {% if user.is_staff %}
+              <a class="register-btn"  href="{% url 'listar_productos' %}">Admin</a>
+            {% endif %}
+          <a class="register-btn"  href="{% url 'perfil_usuario' %}">Plataforma</a>
+          <a class="register-btn"  href="{% url 'logout_view' %}">Salir</a>
+        {% else %}
+        <a class="register-btn" href="{% url 'registrar_usuario' %}">Registrar</a>
+          <a class="register-btn" href="{% url 'login' %}">Ingresar</a>
+        {% endif %}
+        </div>
+    </header>
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  <hr class="lineafinal">
+  <footer>
+    <div class="footer-left">
+        <div class="footer-logo">
+            <img src="{% static 'images/Logo.png' %}" alt="New Wave Forex Logo">
+        </div>
+        <h2>NEW WAVE FOREX</h2>
+        <div class="footer-info">
+            <p>Nuestra misión es ayudarte para que puedas mejorar tu educación financiera.</p>
+        </div>
+        <div class="social-media">
+            <a href="#"><img src="facebook.png" alt="Facebook"></a>
+            <a href="#"><img src="twitter.png" alt="Twitter"></a>
+            <a href="#"><img src="instagram.png" alt="Instagram"></a>
+        </div>
+    </div>
+    
+    <div class="footer-services">
+        <h3>Servicios</h3>
+        <ul>
+            <li><a href="#">-) Acceso a plataforma gratuita</a></li>
+            <li><a href="#">-) Clases en vivo todos los días</a></li>
+            <li><a href="#">-) Seguimiento de un mentor</a></li>
+            <li><a href="#">-) Comunidad</a></li>
+        </ul>
+    </div>
+    
+    <div class="footer-contact">
+        <h3>Horario de Atención</h3>
+        <img src="{% static 'images/Logo.png' %}" alt="New Wave Forex Logo">
+        <p>08h30 a 12:30</p>
+        <p>14h00 - 18:00</p>
+        <p>Lunes a viernes</p>
+        <p>Estamos gustosos de atender cada una de tus consultas.</p>
+    </div>
+</footer>
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+{% extends "masterAdmin.html" %}
+
+{% block title %}
+{% load static %}
+  Administrador - New Wave Forex
+{% endblock %}
+
+{% block content %}
+<section class="SeccionAdmin">
+    <h2>Lista de Usuarios</h2>
+    <h3>Número de usuarios: {{ numero_usuarios }}</h3>
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <table id="tabla_datos">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Telefono</th>
+                <th>Suscripción</th>
+                <th>Ver Usuario</th>
+                <th>Editar Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in usuarios_con_pagos %}
+            <tr>
+                <td>{{ item.usuario.nombre }}</td>
+                <td>{{ item.usuario.apellido }}</td>
+                <td>{{ item.usuario.correo }}</td>
+                <td>{{ item.usuario.telefono }}</td>
+                <td>{{ item.suscripcion_activa|yesno:"Activa,No Activa" }}</td>
+                <td><a href="{% url 'obtener_usuario' item.usuario.id %}">ver</a></td>
+                <td><a href="{% url 'editar_usuario' item.usuario.id %}">editar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#tabla_datos').DataTable();
+        });
+    </script>
+</section>
+{% endblock %}

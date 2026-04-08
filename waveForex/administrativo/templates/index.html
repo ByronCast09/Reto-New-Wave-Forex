@@ -1,0 +1,83 @@
+{% extends "master.html" %}
+
+{% block title %}
+{% load static %}
+  New Wave Forex
+{% endblock %}
+
+{% block content %}
+        <section class="hero">
+            <h1>Nos especializamos en la formación en Swing Trading</h1>
+            <p>Damos la mejor formación en Swing Trading en Latinoamérica, contamos con más de 10 años de experiencia en los mercados financieros. Somos 4 mentores especializados en el mercado de forex de los que podrás aprender y aplicar lo necesario para que logres alcanzar tus objetivos.</p>
+            {% if user.is_authenticated %}
+            <a class="cta-btn"  href="{% url 'planes' %}">Contratar</a>
+            {% else %}
+            <a class="cta-btn"  href="{% url 'registrar_usuario' %}">Regístrate</a>
+            {% endif %}
+
+
+
+        </section>
+        <section class="hero">
+            <p>NUESTROS SERVICIOS</p>
+        <h1>¿Qué es lo que ofrecemos?</h1>
+        </section>
+        <section class="services">
+            
+            <div class="service">
+                <img src="{% static 'images/educacion.png' %}">
+                <h3>Educación</h3>
+                <p>Educación del más alto nivel desde lo más básico hasta lo más avanzado.</p>
+                <a href="#">Leer más ></a>
+            </div>
+            <div class="service">
+                <img src="{% static 'images/educacion.png' %}">
+                <h3>Comunidad</h3>
+                <p>Comunidad de traders de todo el mundo donde podrás compartir y aprender de otros.</p>
+                <a href="#">Leer más ></a>
+            </div>
+            <div class="service">
+                <img src="{% static 'images/educacion.png' %}">
+                <h3>Mentorías</h3>
+                <p>Clases 1:1 con los mentores para que resuelvas todas tus dudas y logres tus objetivos.</p>
+                <a href="#">Leer más ></a>
+            </div>
+            <div class="service">
+                <img src="{% static 'images/educacion.png' %}">
+                <h3>Monitoreo</h3>
+                <p>Dar apoyo y orientación para poder operar en vivo en los mercados de manera eficiente.</p>
+                <a href="#">Leer más ></a>
+            </div>
+        </section>
+        
+        <section class="testimonials">
+            <h2>¿Qué dicen nuestros clientes sobre nosotros?</h2>
+            <div class="testimonial">
+                <div class="testimonial-photo">
+                    <img src="{% static 'images/usuario.png' %}" > 
+                </div>
+                <div class="testimonial-text">
+                    <p>Ser parte de la comunidad New Wave Forex ha sido una experiencia increíble. He ganado mucho conocimiento y ahora tengo la confianza de operar en los mercados financieros.</p>
+                    <p class="author">- Manuel Cavaquitas</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-photo">
+                    <img src="{% static 'images/usuario.png' %}" > 
+                </div>
+                <div class="testimonial-text">
+                    <p>Mi experiencia como estudiante de NWF ha sido satisfactoria, he aprendido no solo técnicas de trading sino también a controlar mis emociones.</p>
+                    <p class="author">- Sofia Casares</p>
+                </div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-photo">
+                    <img src="{% static 'images/usuario.png' %}" > 
+                </div>
+                <div class="testimonial-text">
+                    <p>Mi experiencia como estudiante de NWF ha sido satisfactoria, he aprendido no solo técnicas de trading sino también a controlar mis emociones.</p>
+                    <p class="author">- Sofia Casares</p>
+                </div>
+            </div>
+        </section>   
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "master.html" %}
+
+{% block title %}
+Registrar Usuario
+{% endblock %}
+
+{% block content %}
+    <div class="main-container">
+        <h1 class="tituloregistro">Registrar Usuario</h1>
+        <div class="contenedorRegistro">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="form-group">
+                    {{ form.nombre }}
+                    {{ form.nombre.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.apellido }}
+                    {{ form.apellido.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.correo }}
+                    {{ form.correo.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.telefono }}
+                    {{ form.telefono.errors }}
+                </div>
+                <div class="form-group">
+                    {{ form.contrasenia }}
+                    {{ form.contrasenia.errors }}
+                </div>
+                <button type="submit" class="bregistarUsuario">Registrar</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

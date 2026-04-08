@@ -1,0 +1,52 @@
+{% extends "masterAdmin.html" %}
+
+{% block title %}
+{% load static %}
+  Listar Producto - New Wave Forex
+{% endblock %}
+
+{% block content %}
+<section class="SeccionAdmin">
+    <h2>Lista de Membresias</h2>
+    <div class="seccionArriba">
+        <h3>Número de productos: {{ numero_productos }}</h3> <a href="{% url 'crear_producto' %}">Crear Producto</a>
+    </div>
+    <br>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+
+    <table id="tabla_datos">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Descripción</th>
+                <th>Editar Producto</th>
+                <th>Eliminar Producto</th>
+                <th>Usuarios activos</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in productos %}
+            <tr>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.precio }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td><a href="{% url 'editar_producto' item.id %}">editar</a></td>
+                <td><a href="{% url 'eliminar_producto' item.id %}" onclick="return confirm('¿Está seguro de la eliminación?')">eliminar</a></td>
+                <td><a href="{% url 'obtener_membresias' item.id %}">ver</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script type="text/javascript">
+        $(document).ready( function () {
+            $('#tabla_datos').DataTable();
+        });
+    </script>
+    <br><br><br><br><br>
+
+    </section>
+        {% endblock %}

@@ -1,0 +1,136 @@
+{% extends "master.html" %}
+
+{% block title %}
+ Realizar Pago
+{% endblock %}
+
+{% block content %}
+<h1 class="tituloPago">Realizar Pago</h1>
+    <div class="contenedorPago">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- <button type="submit" class="bpagoUsuario">Pagar</button> -->
+        </form>
+    </div>
+
+    <div class="paypal-button-wrapper">
+        <div id="paypal-button-container"></div>
+    </div>
+    <p id="result-message"></p>
+    <!-- Initialize the JS-SDK -->
+    
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=test"
+        data-sdk-integration-source="developer-studio"
+    ></script>
+    <input type="hidden" id="user-id" value="{{ usuario.id }}">
+    
+    <script type="module">
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+    
+        window.paypal
+            .Buttons({
+                style: {
+                    shape: "rect",
+                    layout: "vertical",
+                    color: "gold",
+                    label: "paypal",
+                },
+                async createOrder() {
+                    try {
+                        const csrftoken = getCookie('csrftoken');
+                        const producto_id = document.querySelector('select[name="producto"]').value;
+                        const usuario_id = document.getElementById('user-id').value;
+
+                        const response = await fetch("/api/orders", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRFToken": csrftoken,
+                            },
+                            body: JSON.stringify({
+                                producto_id: producto_id,
+                                usuario_id: usuario_id
+                            }),
+                        });
+
+                        const orderData = await response.json();
+
+                        if (!response.ok) {
+                            const errorDetail = orderData?.details?.[0];
+                            const errorMessage = errorDetail
+                                ? `${errorDetail.issue} ${errorDetail.description}`
+                                : JSON.stringify(orderData);
+                            throw new Error(`Error creating order: ${errorMessage}`);
+                        }
+
+                        return orderData.id;
+                    } catch (error) {
+                        console.error("Create Order Error:", error);
+                        return null;
+                    }
+                },
+                async onApprove(data, actions) {
+                    try {
+                        const csrftoken = getCookie('csrftoken');
+                        const producto_id = document.querySelector('select[name="producto"]').value;
+                        const usuario_id = document.getElementById('user-id').value;
+
+                        const response = await fetch(`/api/orders/${data.orderID}/capture`, {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                                "X-CSRFToken": csrftoken,
+                            },
+                            body: JSON.stringify({
+                                producto_id: producto_id,
+                                usuario_id: usuario_id
+                            }),
+                        });
+
+                        const orderData = await response.json();
+
+                        if (!response.ok) {
+                            const errorDetail = orderData?.details?.[0];
+                            const errorMessage = errorDetail
+                                ? `${errorDetail.issue} ${errorDetail.description}`
+                                : JSON.stringify(orderData);
+                            throw new Error(`Error capturing order: ${errorMessage}`);
+                        }
+
+                        if (orderData.status === "COMPLETED") {
+                        // Redirige a la vista crear_suscripcion
+                            window.location.href = `/suscripcion/`;
+                        } else {
+                            alert('Payment was not completed. Please try again.');
+                        }
+
+
+
+                    } catch (error) {
+                        console.error("Capture Order Error:", error);
+                        resultMessage(
+                            `Sorry, your transaction could not be processed...<br><br>${error}`
+                        );
+                    }
+                }
+            }).render("#paypal-button-container");
+    </script>
+    
+    
+    
+{% endblock %}

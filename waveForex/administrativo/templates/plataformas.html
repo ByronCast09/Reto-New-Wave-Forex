@@ -1,0 +1,46 @@
+{% extends "masterusuarios.html" %}
+
+{% load static %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/plataformas.css' %}">
+{% endblock %}
+{% block title %}
+Plataforma - New Wave Forex
+{% endblock %}
+{% block content %}    
+
+        <section class="intro">
+            <h2>Nuestras Plataformas</h2>
+            <div class="seccioninicio">
+                <p>En nuestras plataformas, nos dedicamos a proporcionarte la educación, herramientas y habilidades necesarias para triunfar en el mercado de divisas. Estamos comprometidos a crear un ambiente de aprendizaje accesible, amigable y práctico que promueva tu crecimiento personal y profesional. Nuestro objetivo es ayudarte a desarrollar la mentalidad y las habilidades necesarias para tomar decisiones informadas y responsables en tus inversiones. Únete a nosotros y comienza a construir una carrera sólida y rentable en el mercado de divisas, alcanzando tu independencia financiera y disfrutando de la libertad que conlleva.</p>
+                <img src="{% static 'images/principalplata.png' %}" alt="Google Classroom">
+            </div>
+            
+        </section>
+        <section class="plataformas">
+            <div class="plataforma">
+                <img src="{% static 'images/classroom.png' %}" alt="Google Classroom">
+                <div class="plataforma-info">
+                    <h3>Google Classroom</h3>
+                    <p>En Google Classroom, te ofrecemos un entorno estructurado y organizado para tus estudios de forex. Accede a recursos educativos, tareas y evaluaciones diseñadas para mejorar tus conocimientos y habilidades en el mercado de divisas. Además, podrás seguir un plan de trading detallado y recibir seguimiento de un mentor experimentado. ¡Únete a nuestra comunidad en Google Classroom y da el primer paso hacia tu éxito financiero!</p>
+                    <a href="#" class="btn">Ingresar</a>
+                </div>
+            </div>
+            <div class="plataforma">
+                <img src="{% static 'images/whatsapp.png' %}" alt="Whatsapp">
+                <div class="plataforma-info">
+                    <h3>Whatsapp</h3>
+                    <p>Whatsapp es una herramienta de comunicación rápida y accesible que te permitirá estar en constante contacto con tus mentores y compañeros de estudio. Recibe actualizaciones diarias, comparte tus progresos y obtén soporte en tiempo real. Además, participa en nuestras clases en vivo todos los días y accede a contenido nuevo cada semana. ¡Forma parte de nuestra comunidad en Whatsapp y mantente siempre conectado!</p>
+                    <a href="#" class="btn">Ingresar</a>
+                </div>
+            </div>
+            <div class="plataforma">
+                <img src="{% static 'images/discord.png' %}" alt="Discord">
+                <div class="plataforma-info">
+                    <h3>Discord</h3>
+                    <p>Discord es una plataforma dinámica y flexible que te ofrece la oportunidad de interactuar en tiempo real con otros miembros de nuestra comunidad a través de chat de voz, texto y video. Colabora en proyectos y accede a eventos en vivo. Además, podrás seguir un plan de trading personalizado y recibir seguimiento continuo de tu mentor. ¡Únete a nuestra comunidad en Discord y vive una experiencia de aprendizaje interactiva y envolvente en el mundo del forex!</p>
+                    <a href="#" class="btn">Ingresar</a>
+                </div>
+            </div>
+        </section>
+{% endblock %}
