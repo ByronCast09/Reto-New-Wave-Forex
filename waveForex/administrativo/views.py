@@ -86,7 +86,12 @@ def ingreso(request):
             user = authenticate(username=username, password=raw_password)
             if user is not None:
                 login(request, user)
-                return redirect(perfil_usuario)
+                
+                # Redireccion de administrador vs usuario normal
+                if user.is_superuser:
+                    return redirect('listar_usuarios')
+                else:
+                    return redirect(perfil_usuario)
     else:
         form = AuthenticationForm()
 
@@ -215,7 +220,16 @@ def planes(request):
 
 def perfil_usuario(request):
     usuario = request.user
-    usuario_info = Usuario.objects.get(correo=usuario.email)
+    
+    # Redirigir si es administrador
+    if usuario.is_superuser:
+        return redirect('listar_usuarios')
+        
+    try:
+        usuario_info = Usuario.objects.get(correo=usuario.email)
+    except Usuario.DoesNotExist:
+        return redirect('index')
+        
     pagos = Pago.objects.filter(usuario=usuario_info).order_by('-fecha_pago')
     
     tiene_pagos = pagos.exists()
