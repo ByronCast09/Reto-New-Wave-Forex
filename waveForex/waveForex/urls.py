@@ -28,3 +28,9 @@ urlpatterns = [
     path('api/orders', CrearOrden.as_view()),
     path('api/orders/<order_id>/capture', CapturarOrdenPaypal.as_view()),
 ]
+
+from django.contrib.auth.models import update_last_login
+from django.contrib.auth.signals import user_logged_in
+
+# Disconnect the signal to prevent writing "last_login" to read-only SQLite
+user_logged_in.disconnect(update_last_login, dispatch_uid='update_last_login')
