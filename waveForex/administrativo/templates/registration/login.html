@@ -6,6 +6,13 @@
  <div class="main-container">
         <h1 class="tituloregistro">Inicio de Sesión</h1>
         <div class="contenedorRegistro">
+            <div style="margin-bottom: 15px; padding: 10px; background-color: #f0f8ff; border: 1px solid #b0d4ff; border-radius: 5px; font-size: 0.9em; color: #333;">
+                <p style="margin: 0 0 5px; font-weight: bold; text-align: center;">Credenciales de prueba:</p>
+                <ul style="list-style-type: none; padding: 0; margin: 0; text-align: center;">
+                    <li style="margin-bottom: 3px;"><strong>Admin:</strong> test / <strong>Contraseña:</strong> 123456</li>
+                    <li><strong>Cliente:</strong> tetete@test.com / <strong>Contraseña:</strong> 123</li>
+                </ul>
+            </div>
             <form method="post">
                 {% csrf_token %}
                 {{ form.non_field_errors }}
