@@ -1,3 +1,5 @@
+Cuenta admin: test -> 123456
+Cuenta cliente: tetete@test.com -> 123
 # Relaciones
 ## Usuario y Pago:
 **Relación:** Uno a Muchos (Un usuario puede tener muchas suscripciones)
